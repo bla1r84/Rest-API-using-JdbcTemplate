@@ -1,0 +1,17 @@
+server:
+  port: 8080
+  contextPath: /SpringBootRestApi
+  
+spring:
+  h2:
+    console:
+      enabled: true
+
+logging:
+  file: logfile.log
+  level: 
+    com.iknowhow.springboot.controller: debug
+  
+spring.datasource:
+    driverClassName: org.h2.Driver
+    url: jdbc:h2:mem:test;MODE=MySQL
