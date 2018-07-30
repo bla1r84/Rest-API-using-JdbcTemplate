@@ -1,4 +1,5 @@
-In this solution, which remains more loyal to the original code given, JdbcTemplate was used.
+Rest API created for an interview
+
 UserRepository
 --------------
 Several methods were created in the UserRepository in order to complete the various CRUD functions.
