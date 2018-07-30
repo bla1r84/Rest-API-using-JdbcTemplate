@@ -4,7 +4,7 @@ UserRepository
 --------------
 Several methods were created in the UserRepository in order to complete the various CRUD functions.
 
-*insertUser(): method to insert a new user to the database.
+* insertUser(): method to insert a new user to the database.
 * updateUser(): method to update a user in the database.
 * findById(): takes an ID and returns an object of type User.
 It is interesting to note that this method will throw an exception if no user is found. That particular trait was used later on in the controller.
@@ -29,7 +29,6 @@ listAllUsers(): finds all the users, adds a note to the log file and then return
 
 * getUser(): Same as above, except that it finds an returns only one user. If no user is found, it throws an exception. This is the dealt with in the RestExceptionHandler controller (annotated as @ControllerAdvice), and in particular in the handleEmptyResultDataAccessException() method of that controller, which returns a 404 status code and a message that no user was found.
 * createUser(): An @Valid annotation was added here in order to check whether the name property is either missing or is empty. To this end, an @NotBlank annotation was added to the name property in the User model. Otherwise this would have to be handled manually in the controller (by checking if the given name is valid).
-
 The location of the new user is also generated here and returned with the ResponseEntity (along with with 201 status code and new User details)
 
 * updateUser(): Updates the user by first setting its ID to the given path variable and then calling the respective method of the UserService.
@@ -42,4 +41,5 @@ CustomErrorType was edited to include the HttpStatus and a list of all the error
 
 Swagger
 -------
-A Swagger class was inserted and can be accessed through http://localhost:8080/SpringBootRestApi/swagger-ui.html. It provides automatic documentation for the Rest Service. Note: The @Api annotation was added to the main controller. That, in combination with the ".apis(RequestHandlerSelectors.withClassAnnotation(Api.class))" line in the Swagger's configuration makes sure that only the main controller will appear in Swagger (RestExceptionHandler is ommitted).
+A Swagger class was inserted and can be accessed through http://localhost:8080/SpringBootRestApi/swagger-ui.html. It provides automatic documentation for the Rest Service. 
+**Note:** _The @Api annotation was added to the main controller. That, in combination with the ".apis(RequestHandlerSelectors.withClassAnnotation(Api.class))" line in the Swagger's configuration makes sure that only the main controller will appear in Swagger (RestExceptionHandler is ommitted)._
